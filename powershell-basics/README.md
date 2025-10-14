@@ -1,3 +1,9 @@
 # PowerShell Basics
-Scripts: list installed software, OS build, silent install with winget.
-Put scripts in ./scripts/ and screenshots in ./screenshots/
+
+- List installed software
+- Get Windows version/build
+- Silent install with winget
+
+**Artifacts**
+- `scripts/`
+- `screenshots/` (script run + output)
