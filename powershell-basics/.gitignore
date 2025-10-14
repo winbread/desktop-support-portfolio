@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iso
+*.img
+*.vhd*
+*.zip
+*.7z
+*.exe
+*.msi
+*.mp4
+*.key
+*.pem
+*.pfx
+secrets.*
+.env
