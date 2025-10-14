@@ -1,2 +1,8 @@
 # Desktop Support Portfolio
-Hands-on labs: imaging/re-imaging, printers by IP, break/fix triage, and PowerShell basics.
+## Projects
+- [Imaging a Windows 11 VM](imaging-windows/README.md)
+- [Add a Network Printer by IP](printers-by-ip/README.md)
+- [Break/Fix Triage (ipconfig → ping → tracert)](break-fix-triage/README.md)
+- [PowerShell Basics (inventory & installs)](powershell-basics/README.md)
+
+> Evidence: 3–6 screenshots per project + short write-up (Problem → Actions → Result → Lessons).
