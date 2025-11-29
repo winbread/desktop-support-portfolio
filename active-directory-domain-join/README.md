@@ -140,6 +140,35 @@ After reboot:
 - `05-win10-domain-join.png` – System Properties showing `Domain: lab.local`.  
 - `06-win10-logged-in-domain-user.png` – Desktop logged in as `LAB\alopez` (or another domain user).
 
+## Summary
+
+In this lab I:
+
+- Built a small VirtualBox network using a NAT Network.
+- Promoted a Windows Server VM to a Domain Controller for `lab.local`.
+- Created an `HQ_Users` OU and several test user accounts.
+- Joined a Windows 10 client to the `lab.local` domain and logged in with a domain user.
+
+This gives me a repeatable template for spinning up a basic AD lab for future experiments.
+
+---
+
+## Skills Demonstrated
+
+- VirtualBox:
+  - Configure NAT Network and attach VMs
+- Windows Server:
+  - Configure static IPv4
+  - Install AD DS and DNS roles
+  - Promote a server to Domain Controller (new forest)
+- Active Directory:
+  - Use ADUC
+  - Create OUs and user accounts
+- Windows 10:
+  - Configure IP/DNS settings
+  - Join a machine to an AD domain
+  - Log in with domain user accounts
+
 
 
 
