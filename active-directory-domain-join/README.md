@@ -80,3 +80,133 @@ Commands used:
 hostname
 whoami
 ipconfig /all
+
+
+## Part 3 – Create an OU and Users
+
+On **DC01**:
+
+1. Open **Tools → Active Directory Users and Computers**.
+2. Right-click the domain `lab.local` → **New → Organizational Unit**:
+   - Name: `HQ_Users`
+3. In `HQ_Users`, create example users:
+   - `jdoe` – John Doe  
+   - `psmith` – Paula Smith  
+   - (Optional) `alopez` – my own domain user
+
+For lab purposes I used simple passwords and disabled **“User must change password at next logon”**.
+
+**Planned screenshot:**  
+`04-ad-ou-users.png` – `HQ_Users` OU with the users listed.
+
+---
+
+## Part 4 – Join Windows 10 to the Domain
+
+On **WIN10**:
+
+1. Configure IPv4:
+   - IP: `192.168.10.20`
+   - Mask: `255.255.255.0`
+   - Gateway: `192.168.10.1` (or blank)
+   - **DNS:** `192.168.10.10` (DC01)
+2. Test connectivity:
+   ```powershell
+   ping 192.168.10.10
+   ping dc01.lab.local
+Join the domain:
+
+Right-click This PC → Properties
+
+Advanced system settings → Computer Name → Change
+
+Select Domain and enter: lab.local
+
+When prompted, enter domain credentials (for example LAB\Administrator).
+
+Reboot.
+
+Planned screenshots:
+
+05-win10-domain-join.png – System Properties showing Domain: lab.local.
+
+06-win10-logged-in-domain-user.png – Logged in as a domain user (e.g. LAB\alopez).
+
+After reboot:
+
+At the login screen choose Other user.
+
+Log in with LAB\alopez or another domain account.
+
+Part 5 – Troubleshooting: DNS/IP Misconfiguration
+I ran into a realistic issue while doing this lab.
+
+Symptom
+The Windows 10 client could not join the domain.
+
+Pings and name resolution were failing.
+
+Root Cause
+VirtualBox NAT Network was set to 192.168.10.0/24.
+
+DC01 was still using an old static IP from a different subnet.
+
+WIN10 was pointing DNS at DC01, but DC01’s IP did not match the network.
+
+Fix
+Corrected DC01 NIC to:
+
+IP: 192.168.10.10
+
+Mask: 255.255.255.0
+
+Gateway: 192.168.10.1 (or blank)
+
+DNS: 192.168.10.10
+
+Verified on DC01 with:
+
+powershell
+Copy code
+ipconfig /all
+From WIN10, verified reachability:
+
+powershell
+Copy code
+ping 192.168.10.10
+ping dc01.lab.local
+nslookup dc01.lab.local
+Re-attempted the domain join, which then succeeded.
+
+Lessons Learned
+Domain joins rely heavily on DNS.
+
+The domain controller must be reachable on the same subnet (or properly routed).
+
+Small IP/DNS mismatches can completely block AD functionality, so basic tools like
+ipconfig, ping, and nslookup are critical.
+
+Skills Demonstrated
+VirtualBox network configuration
+
+Windows Server:
+
+Promote to Domain Controller
+
+Install and manage AD DS & DNS
+
+Active Directory:
+
+Create OUs and users
+
+Windows 10:
+
+Join a domain
+
+Log in with domain accounts
+
+Basic network troubleshooting:
+
+ipconfig /all, ping, nslookup
+
+Identifying and fixing subnet/DNS mismatches
