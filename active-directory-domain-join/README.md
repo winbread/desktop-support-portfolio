@@ -75,6 +75,8 @@ hostname
 whoami
 ipconfig /all
 
+```
+
 ## Part 3 – Create an OU and Users
 
 On **DC01**:
