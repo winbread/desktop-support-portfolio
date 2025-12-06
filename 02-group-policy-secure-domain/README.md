@@ -21,12 +21,13 @@ On **DC01**:
    - **Minimum password length**: 8 characters  
    - **Password must meet complexity requirements**: Enabled  
 
-**Screenshot:** Default Domain Policy selected under `lab.local`.  
+ 
 ![Default Domain Policy](../images/01-gpmc-default-domain-policy.png)
 
 
 **Screenshot:** Password Policy settings showing the values above.  
-`02-password-policy-settings.png`
+![Password Policy settings in Default Domain Policy](../images/02-password-policy-settings.png)
+
 
 ---          
 
