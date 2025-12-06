@@ -37,7 +37,7 @@ Still on **DC01**, open an elevated Command Prompt and run:
 
 ```cmd
 gpupdate /force
-
+```
 ### 3. Force Group Policy update on the Windows 10 client (and troubleshoot)
 
 On the **Windows 10 client**, open **Command Prompt as Administrator** and run:
