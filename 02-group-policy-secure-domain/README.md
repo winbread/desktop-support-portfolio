@@ -38,3 +38,17 @@ Still on **DC01**, open an elevated Command Prompt and run:
 ```cmd
 gpupdate /force
 
+### 3. Force Group Policy update on the Windows 10 client (and troubleshoot)
+
+On the **Windows 10 client**, open **Command Prompt as Administrator** and run:
+
+    gpupdate /force
+
+Initially, this failed with a **time synchronization error**:
+
+> Windows was unable to determine whether new Group Policy settings defined by a network administrator should be enforced for this user or computer because this computer’s clock is not synchronized with the clock of one of the domain controllers for the domain...
+
+**Screenshot:** Initial `gpupdate /force` run showing the time-sync error.  
+![gpupdate time error](../images/03-win10-gpupdate-time-error.png)
+
+To fix this and get `gpupdate` working, I did the following:
