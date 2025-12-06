@@ -6,3 +6,4 @@
 - [PowerShell Basics (inventory & installs)](powershell-basics/README.md)
 - [Active Directory Lab – Create a Domain and Join a Windows 10 Client](./active-directory-domain-join/README.md)
 > Evidence: 3–6 screenshots per project + short write-up (Problem → Actions → Result → Lessons).
+![Default Domain Policy](images/01-gpmc-default-domain-policy.png)
