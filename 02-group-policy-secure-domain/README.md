@@ -22,7 +22,8 @@ On **DC01**:
    - **Password must meet complexity requirements**: Enabled  
 
 **Screenshot:** Default Domain Policy selected under `lab.local`.  
-![Default Domain Policy](images/01-gpmc-default-domain-policy.png)
+![Default Domain Policy](../images/01-gpmc-default-domain-policy.png)
+
 
 **Screenshot:** Password Policy settings showing the values above.  
 `02-password-policy-settings.png`
