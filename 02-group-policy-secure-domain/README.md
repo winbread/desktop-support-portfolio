@@ -27,7 +27,7 @@ On **DC01**:
 **Screenshot:** Password Policy settings showing the values above.  
 `02-password-policy-settings.png`
 
----
+---          
 
 ### 2. Force Group Policy update on DC01
 
