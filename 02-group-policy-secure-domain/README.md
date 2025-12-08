@@ -114,6 +114,7 @@ On the **Windows 10 client**:
 ```cmd
 whoami
 echo %logonserver%
+```
 Output confirms:
 
 - `whoami` → `lab\ALopez`
