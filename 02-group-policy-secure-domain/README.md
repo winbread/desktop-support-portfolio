@@ -136,6 +136,23 @@ Now both policies complete successfully:
 **Screenshot:** Successful `gpupdate /force` output on the Win10 client.  
 ![gpupdate success](../images/11-win10-gpupdate-success.png)
 
+4. Verify password policy enforcement on the client
+
+While logged in as the domain user (LAB\ALopez) on the Windows 10 client:
+
+Press Ctrl + Alt + Del → Change a password.
+
+Try to change the password to a weak value (e.g. password1 or 12345678).
+
+Windows shows:
+
+The value provided for the new password does not meet the length, complexity, or history requirements of the domain.
+
+This confirms the domain password policy from the Default Domain Policy is now applied to the client.
+
+Screenshot: Change Password screen showing the password complexity error.
+09-win10-password-too-weak-error.png
+
 
 
 
