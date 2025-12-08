@@ -25,7 +25,7 @@ On **DC01**:
 ![Default Domain Policy](../images/01-gpmc-default-domain-policy.png)
 
 
-**Screenshot:** Password Policy settings showing the values above.  
+  
 ![Password Policy settings in Default Domain Policy](../images/02-password-policy-settings.png)
 
 
@@ -48,7 +48,7 @@ Initially, this failed with a **time synchronization error**:
 
 > Windows was unable to determine whether new Group Policy settings defined by a network administrator should be enforced for this user or computer because this computer’s clock is not synchronized with the clock of one of the domain controllers for the domain...
 
-**Screenshot:** Initial `gpupdate /force` run showing the time-sync error.  
+ 
 ![gpupdate time error](../images/03-win10-gpupdate-time-error.png)
 
 To fix this and get `gpupdate` working, I did the following:
@@ -64,7 +64,7 @@ On **DC01**:
   - **Time zone** (e.g. `(UTC-05:00) Eastern Time (US & Canada)`)
   - **Date and time**
 
-**Screenshot:** Date & time settings on DC01 with correct time and time zone.  
+  
 ![DC01 correct time](../images/04-dc01-correct-date-time.png)
 
 #### 3.2 Match the Windows 10 client clock to DC01
@@ -77,7 +77,7 @@ On the **Windows 10 client**:
   - The **same time zone** as DC01.
   - The **date and time** to match DC01 (within about a minute).
 
-**Screenshot:** Client Date & time page showing same time zone and corrected time.  
+  
 ![Win10 matching time](../images/05-win10-date-time-matching-dc01.png)
 
 ---
@@ -94,7 +94,7 @@ Here I confirmed:
 - **Full computer name:** `winbread.lab.local`  
 - **Domain:** `lab.local`
 
-**Screenshot:** System Properties → Computer Name tab showing `Domain: lab.local`.  
+  
 ![Win10 domain membership](../images/06-win10-domain-membership.png)
 
 #### 3.4 Log in with a domain user and re-run `gpupdate`
@@ -120,7 +120,7 @@ Output confirms:
 - `whoami` → `lab\ALopez`
 - `%logonserver%` → `\\DC01`
 
-**Screenshot:** `whoami` and `%logonserver%` showing domain user and DC01.  
+  
 ![whoami and logonserver](../images/07-win10-domain-user-whoami-logonserver.png)
 
 Finally, run:
@@ -133,7 +133,7 @@ Now both policies complete successfully:
 - `Computer Policy update has completed successfully.`
 - `User Policy update has completed successfully.`
 
-**Screenshot:** Successful `gpupdate /force` output on the Win10 client.  
+  
 ![gpupdate success](../images/11-win10-gpupdate-success.png)
 
 ### 4. Verify password policy enforcement on the client
@@ -149,7 +149,7 @@ Windows shows:
 
 This confirms the **domain password policy** from the Default Domain Policy is now applied to the client.
 
-**Screenshot:** Change Password screen showing the password complexity error.  
+  
 ![weak password blocked](../images/09-win10-password-too-weak-error.png)
 
 
