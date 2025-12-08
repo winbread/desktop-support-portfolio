@@ -97,3 +97,46 @@ Here I confirmed:
 **Screenshot:** System Properties → Computer Name tab showing `Domain: lab.local`.  
 ![Win10 domain membership](../images/06-win10-domain-membership.png)
 
+#### 3.4 Log in with a domain user and re-run `gpupdate`
+
+I realized I had been using a **local user**, not a domain user, earlier.
+
+On the **Windows 10 client**:
+
+1. Sign out.
+2. On the login screen, choose **Other user**.
+3. Log in as the domain user, for example:
+   - **Username:** `LAB\ALopez`
+   - **Password:** (domain password set in AD)
+
+4. Open **Command Prompt** and verify:
+
+```cmd
+whoami
+echo %logonserver%
+Output confirms:
+
+- `whoami` → `lab\ALopez`
+- `%logonserver%` → `\\DC01`
+
+**Screenshot:** `whoami` and `%logonserver%` showing domain user and DC01.  
+![whoami and logonserver](../images/07-win10-domain-user-whoami-logonserver.png)
+
+Finally, run:
+
+```cmd
+gpupdate /force
+Now both policies complete successfully:
+
+- `Computer Policy update has completed successfully.`
+- `User Policy update has completed successfully.`
+
+**Screenshot:** Successful `gpupdate /force` output on the Win10 client.  
+![gpupdate success](../images/05-win10-gpupdate-success.png)
+
+
+
+
+
+
+
