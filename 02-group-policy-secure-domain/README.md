@@ -52,3 +52,17 @@ Initially, this failed with a **time synchronization error**:
 ![gpupdate time error](../images/03-win10-gpupdate-time-error.png)
 
 To fix this and get `gpupdate` working, I did the following:
+
+
+#### 3.1 Fix time and time zone on DC01
+
+On **DC01**:
+
+- Open **Settings → Time & Language → Date & time**.
+- Turn **off** **“Set time automatically”** (the lab has no internet time).
+- Set the correct:
+  - **Time zone** (e.g. `(UTC-05:00) Eastern Time (US & Canada)`)
+  - **Date and time**
+
+**Screenshot:** Date & time settings on DC01 with correct time and time zone.  
+![DC01 correct time](../images/04-dc01-correct-date-time.png)
