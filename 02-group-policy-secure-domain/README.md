@@ -66,3 +66,34 @@ On **DC01**:
 
 **Screenshot:** Date & time settings on DC01 with correct time and time zone.  
 ![DC01 correct time](../images/04-dc01-correct-date-time.png)
+
+#### 3.2 Match the Windows 10 client clock to DC01
+
+On the **Windows 10 client**:
+
+- Right-click the clock → **Adjust date/time**.
+- Turn **off** “Set time automatically”.
+- Set:
+  - The **same time zone** as DC01.
+  - The **date and time** to match DC01 (within about a minute).
+
+**Screenshot:** Client Date & time page showing same time zone and corrected time.  
+![Win10 matching time](../images/05-win10-date-time-matching-dc01.png)
+
+---
+
+#### 3.3 Confirm the client is joined to `lab.local`
+
+On the **Windows 10 client**:
+
+- Right-click **This PC** → **Properties** → **Advanced system settings**.
+- Go to the **Computer Name** tab.
+
+Here I confirmed:
+
+- **Full computer name:** `winbread.lab.local`  
+- **Domain:** `lab.local`
+
+**Screenshot:** System Properties → Computer Name tab showing `Domain: lab.local`.  
+![Win10 domain membership](../images/06-win10-domain-membership.png)
+
