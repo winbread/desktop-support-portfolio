@@ -127,6 +127,7 @@ Finally, run:
 
 ```cmd
 gpupdate /force
+```
 Now both policies complete successfully:
 
 - `Computer Policy update has completed successfully.`
