@@ -134,7 +134,7 @@ Now both policies complete successfully:
 - `User Policy update has completed successfully.`
 
 **Screenshot:** Successful `gpupdate /force` output on the Win10 client.  
-![gpupdate success](../images/05-win10-gpupdate-success.png)
+![gpupdate success](../images/08-win10-gpupdate-success.png)
 
 
 
