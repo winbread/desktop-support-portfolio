@@ -153,6 +153,86 @@ This confirms the **domain password policy** from the Default Domain Policy is n
 ![weak password blocked](../images/09-win10-password-too-weak-error.png)
 
 
+## Part 2 – Disable Control Panel for Domain Users
+
+**Goal:** Use Group Policy to restrict access to Control Panel and PC settings for users in the `HQ_Users` OU.
+
+### Prerequisites
+
+- `HQ_Users` OU already created in Active Directory.
+- At least one domain user account inside `HQ_Users`.
+- Windows 10 client joined to `lab.local` and able to log in as an `HQ_Users` user.
+
+---
+
+### Step 1 – Create and Link a GPO to HQ_Users
+
+1. On **DC01**, open **Group Policy Management** (`gpmc.msc`).
+2. Expand:
+
+   - **Forest: lab.local**
+   - **Domains**
+   - **lab.local**
+   - **HQ_Users**
+
+3. Right-click **HQ_Users** → **Create a GPO in this domain, and Link it here…**
+4. Name the GPO: **`Disable Control Panel - HQ_Users`** → **OK**.
+
+**Screenshot:**  
+`04-gpmc-disable-control-panel-gpo.png` – GPMC showing `HQ_Users` selected with the `Disable Control Panel - HQ_Users` GPO linked.
+
+---
+
+### Step 2 – Configure the GPO to Prohibit Access to Control Panel
+
+1. In **Group Policy Management**, right-click  
+   **`Disable Control Panel - HQ_Users` → Edit…**
+2. In **Group Policy Management Editor**, navigate:
+
+   ```text
+   User Configuration
+     → Policies
+       → Administrative Templates
+         → Control Panel
+         Double-click **Prohibit access to Control Panel and PC settings**.
+
+Set it to **Enabled** → click **OK**.
+
+**Screenshot:**  
+`05-gpo-setting-disable-control-panel.png` – GPO Editor window showing the **Control Panel** node and the **Prohibit access to Control Panel and PC settings** policy set to **Enabled**.
+
+---
+
+### Step 3 – Apply the Policy
+
+**On DC01 (optional):**
+
+```cmd
+gpupdate /force
+On the Windows 10 client (as an HQ_Users user):
+
+cmd
+Copy code
+gpupdate /force
+```
+
+
+### Step 4 – Verify Control Panel is Blocked
+
+1. On the **Windows 10 client**, log in as a domain user located in the **HQ_Users** OU.
+2. Try to open Control Panel using one of the following methods:
+   - Start menu → type **Control Panel** → press **Enter**, or
+   - **Win + R** → type `control` → press **Enter**.
+3. The attempt should fail with a message similar to:
+
+   > This operation has been canceled due to restrictions in effect on this computer. Please contact your system administrator.
+
+   or Settings/Control Panel will simply refuse to open.
+
+**Screenshot:**  
+`06-win10-control-panel-blocked.png` – Windows 10 client showing that access to Control Panel is blocked by Group Policy (restriction error message).
+
+
 
 
 
