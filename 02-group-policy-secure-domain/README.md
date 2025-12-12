@@ -179,7 +179,7 @@ This confirms the **domain password policy** from the Default Domain Policy is n
 4. Name the GPO: **`Disable Control Panel - HQ_Users`** → **OK**.
 
 **Screenshot:**  
-`../images/04-gpmc-disable-control-panel-gpo.png` – GPMC showing `HQ_Users` selected with the `Disable Control Panel - HQ_Users` GPO linked.
+(../images/04-gpmc-disable-control-panel-gpo.png) – GPMC showing `HQ_Users` selected with the `Disable Control Panel - HQ_Users` GPO linked.
 
 ---
 
@@ -199,7 +199,7 @@ This confirms the **domain password policy** from the Default Domain Policy is n
 Set it to **Enabled** → click **OK**.
 
 **Screenshot:**  
-`../images/05-gpo-setting-disable-control-panel.png` – GPO Editor window showing the **Control Panel** node and the **Prohibit access to Control Panel and PC settings** policy set to **Enabled**.
+(../images/05-gpo-setting-disable-control-panel.png) – GPO Editor window showing the **Control Panel** node and the **Prohibit access to Control Panel and PC settings** policy set to **Enabled**.
 
 ---
 
@@ -230,7 +230,7 @@ gpupdate /force
    or Settings/Control Panel will simply refuse to open.
 
 **Screenshot:**  
-`../images/06-win10-control-panel-blocked.png` – Windows 10 client showing that access to Control Panel is blocked by Group Policy (restriction error message).
+(../images/06-win10-control-panel-blocked.png) – Windows 10 client showing that access to Control Panel is blocked by Group Policy (restriction error message).
 
 
 
