@@ -1,4 +1,4 @@
-Add Active Directory domain join lab
+
 # Active Directory Lab – Create a Domain and Join a Windows 10 Client
 
 Hands-on lab where I built a small Active Directory environment in VirtualBox:
